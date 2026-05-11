@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DeviceListTableViewCell" rowHeight="502" id="KGk-i7-Jjw" customClass="DeviceListTableViewCell" customModule="SkromanIsra" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="400" height="502"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="400" height="502"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rHJ-LV-xs5">
+                        <rect key="frame" x="0.0" y="0.0" width="400" height="502"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wifi" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="xFp-sd-dFv">
+                                <rect key="frame" x="8" y="12.33333333333333" width="25" height="20.666666666666671"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="25" id="frY-ND-tY8"/>
+                                    <constraint firstAttribute="height" constant="25" id="kKP-5g-mIi"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="25" id="ubm-9K-gCi"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="25" id="yZe-Am-wBP"/>
+                                </constraints>
+                            </imageView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="8oY-is-8gs">
+                                <rect key="frame" x="8" y="43" width="384" height="450"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="450" id="ynR-bX-YQ5"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="eRG-Pd-zrY">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                            </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uIB-DW-epw">
+                                <rect key="frame" x="41" y="12.666666666666664" width="35.333333333333343" height="18"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="18" id="9FC-rq-5bq"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="18" id="wiO-O7-HbE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sTS-ce-7YE">
+                                <rect key="frame" x="360" y="5" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="4zy-NT-bbb"/>
+                                    <constraint firstAttribute="width" constant="30" id="puG-WT-aLV"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="more-3"/>
+                                <connections>
+                                    <action selector="deviceSettingButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="OzH-vM-CRS"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="8oY-is-8gs" firstAttribute="top" secondItem="sTS-ce-7YE" secondAttribute="bottom" constant="8" symbolic="YES" id="1lO-mo-e8V"/>
+                            <constraint firstItem="xFp-sd-dFv" firstAttribute="leading" secondItem="rHJ-LV-xs5" secondAttribute="leading" constant="8" id="49P-SJ-gBx"/>
+                            <constraint firstItem="uIB-DW-epw" firstAttribute="top" secondItem="rHJ-LV-xs5" secondAttribute="top" constant="12.67" id="9Ui-mR-cWA"/>
+                            <constraint firstAttribute="trailing" secondItem="8oY-is-8gs" secondAttribute="trailing" constant="8" id="GV0-tT-b7z"/>
+                            <constraint firstItem="8oY-is-8gs" firstAttribute="leading" secondItem="rHJ-LV-xs5" secondAttribute="leading" constant="8" id="Ljm-lG-hqP"/>
+                            <constraint firstItem="sTS-ce-7YE" firstAttribute="top" secondItem="rHJ-LV-xs5" secondAttribute="top" constant="5" id="RVk-r5-QSP"/>
+                            <constraint firstItem="uIB-DW-epw" firstAttribute="leading" secondItem="xFp-sd-dFv" secondAttribute="trailing" constant="8" symbolic="YES" id="bd7-t6-Xje"/>
+                            <constraint firstAttribute="bottom" secondItem="8oY-is-8gs" secondAttribute="bottom" constant="9" id="dua-kB-ejb"/>
+                            <constraint firstItem="uIB-DW-epw" firstAttribute="leading" secondItem="xFp-sd-dFv" secondAttribute="trailing" constant="8" symbolic="YES" id="pgb-kd-8F3"/>
+                            <constraint firstItem="xFp-sd-dFv" firstAttribute="top" secondItem="rHJ-LV-xs5" secondAttribute="top" constant="10" id="tXd-I2-3iW"/>
+                            <constraint firstAttribute="trailing" secondItem="sTS-ce-7YE" secondAttribute="trailing" constant="10" id="tbz-lP-WpP"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="rHJ-LV-xs5" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="WHw-Lp-jwQ"/>
+                    <constraint firstAttribute="bottom" secondItem="rHJ-LV-xs5" secondAttribute="bottom" id="fm0-oK-h6V"/>
+                    <constraint firstItem="rHJ-LV-xs5" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="kA1-qi-OJX"/>
+                    <constraint firstAttribute="trailing" secondItem="rHJ-LV-xs5" secondAttribute="trailing" id="ux7-Hz-IY2"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="WIFIAndDevicelabel" destination="uIB-DW-epw" id="j9s-fC-hr2"/>
+                <outlet property="cellbackgroundView" destination="rHJ-LV-xs5" id="tMh-F0-KvP"/>
+                <outlet property="collectionViewHeight" destination="ynR-bX-YQ5" id="2vs-dZ-oN6"/>
+                <outlet property="deviceListCollectionView" destination="8oY-is-8gs" id="OYv-hC-c1j"/>
+                <outlet property="isonlineImage" destination="xFp-sd-dFv" id="UuC-S6-Xwe"/>
+            </connections>
+            <point key="canvasLocation" x="423" y="80"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="more-3" width="32" height="32"/>
+        <image name="wifi" catalog="system" width="128" height="90"/>
+    </resources>
+</document>

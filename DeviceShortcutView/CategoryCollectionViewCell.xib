@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="CategoryCollectionViewCell" customModule="SkromanIsra" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="70" height="34"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="70" height="34"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NeR-VL-hKI">
+                        <rect key="frame" x="0.0" y="0.0" width="70" height="34"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="34t-6D-z4A">
+                                <rect key="frame" x="5" y="5" width="37.333333333333336" height="18"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="18" id="qDq-B1-vYm"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="34t-6D-z4A" firstAttribute="top" secondItem="NeR-VL-hKI" secondAttribute="top" constant="5" id="M2G-jC-xWr"/>
+                            <constraint firstItem="34t-6D-z4A" firstAttribute="leading" secondItem="NeR-VL-hKI" secondAttribute="leading" constant="5" id="P7G-KS-tY2"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="NeR-VL-hKI" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="NIf-6y-lgs"/>
+                <constraint firstAttribute="trailing" secondItem="NeR-VL-hKI" secondAttribute="trailing" id="QnG-O1-Ucj"/>
+                <constraint firstItem="NeR-VL-hKI" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="ZGv-ef-7ve"/>
+                <constraint firstAttribute="bottom" secondItem="NeR-VL-hKI" secondAttribute="bottom" id="lVC-if-Yt5"/>
+            </constraints>
+            <size key="customSize" width="111" height="34"/>
+            <connections>
+                <outlet property="categoryLabel" destination="34t-6D-z4A" id="muy-xK-asG"/>
+                <outlet property="cellView" destination="NeR-VL-hKI" id="EXt-iR-e4W"/>
+            </connections>
+            <point key="canvasLocation" x="141.22137404580153" y="14.084507042253522"/>
+        </collectionViewCell>
+    </objects>
+</document>

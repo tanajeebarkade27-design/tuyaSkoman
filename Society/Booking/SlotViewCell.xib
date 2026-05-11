@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="24506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24504"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="SlotViewCell" customModule="SkromanIsra" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="134" height="31"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="134" height="31"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cAP-jW-uk3">
+                        <rect key="frame" x="0.0" y="0.0" width="134" height="31"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Slots" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O9r-ko-Cuq">
+                                <rect key="frame" x="53.000000000000007" y="5" width="28.333333333333336" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="Rwq-Hc-yWc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="O9r-ko-Cuq" firstAttribute="centerY" secondItem="cAP-jW-uk3" secondAttribute="centerY" id="3LK-DO-2Ke"/>
+                            <constraint firstItem="O9r-ko-Cuq" firstAttribute="centerX" secondItem="cAP-jW-uk3" secondAttribute="centerX" id="ZRW-nl-eZJ"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="cAP-jW-uk3" secondAttribute="trailing" id="7AG-09-QfF"/>
+                <constraint firstItem="cAP-jW-uk3" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="SWa-Qw-exu"/>
+                <constraint firstAttribute="bottom" secondItem="cAP-jW-uk3" secondAttribute="bottom" id="WKE-Kf-wGw"/>
+                <constraint firstItem="cAP-jW-uk3" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Yla-lF-CLG"/>
+            </constraints>
+            <size key="customSize" width="134" height="31"/>
+            <connections>
+                <outlet property="cellbackground" destination="cAP-jW-uk3" id="mLT-Qr-pvh"/>
+                <outlet property="slotTime" destination="O9r-ko-Cuq" id="Vo1-Qe-TfK"/>
+            </connections>
+            <point key="canvasLocation" x="42.748091603053432" y="122.88732394366198"/>
+        </collectionViewCell>
+    </objects>
+</document>

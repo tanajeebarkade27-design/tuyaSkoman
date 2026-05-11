@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="24506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24504"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="addNewRoomCollectionViewCell" customModule="SkromanIsra" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="63" height="78"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="63" height="78"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n26-ix-vjA">
+                        <rect key="frame" x="0.0" y="0.0" width="63" height="78"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TOm-Bo-MCS">
+                                <rect key="frame" x="11.666666666666664" y="8" width="40" height="40"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="livingRoom" translatesAutoresizingMaskIntoConstraints="NO" id="Rem-gs-BS9">
+                                        <rect key="frame" x="7.3333333333333357" y="7.6666666666666643" width="25" height="25"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="25" id="3df-M6-02I"/>
+                                            <constraint firstAttribute="height" constant="25" id="E6w-HO-92Z"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="Rem-gs-BS9" firstAttribute="centerY" secondItem="TOm-Bo-MCS" secondAttribute="centerY" id="Ity-Fq-Byf"/>
+                                    <constraint firstAttribute="height" constant="40" id="VHv-V0-Lob"/>
+                                    <constraint firstAttribute="width" constant="40" id="Xdi-dG-ICZ"/>
+                                    <constraint firstItem="Rem-gs-BS9" firstAttribute="centerX" secondItem="TOm-Bo-MCS" secondAttribute="centerX" id="zTP-Lx-ulS"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f4J-6x-nnA">
+                                <rect key="frame" x="31.666666666666668" y="56" width="0.0" height="11"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="11" id="4zQ-i7-zJf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="f4J-6x-nnA" firstAttribute="centerX" secondItem="n26-ix-vjA" secondAttribute="centerX" id="Paj-3q-SED"/>
+                            <constraint firstItem="TOm-Bo-MCS" firstAttribute="centerX" secondItem="n26-ix-vjA" secondAttribute="centerX" id="hW0-Ai-5ou"/>
+                            <constraint firstItem="f4J-6x-nnA" firstAttribute="top" secondItem="TOm-Bo-MCS" secondAttribute="bottom" constant="8" symbolic="YES" id="mJq-0A-Ebq"/>
+                            <constraint firstItem="TOm-Bo-MCS" firstAttribute="top" secondItem="n26-ix-vjA" secondAttribute="top" constant="8" id="nQA-dv-gc7"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="n26-ix-vjA" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="4Z2-uX-cyW"/>
+                <constraint firstAttribute="bottom" secondItem="n26-ix-vjA" secondAttribute="bottom" id="AUG-SV-fMJ"/>
+                <constraint firstAttribute="trailing" secondItem="n26-ix-vjA" secondAttribute="trailing" id="S3q-9G-XE4"/>
+                <constraint firstItem="n26-ix-vjA" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="WW6-KW-b6d"/>
+            </constraints>
+            <size key="customSize" width="63" height="78"/>
+            <connections>
+                <outlet property="cellBackgroundView" destination="n26-ix-vjA" id="Gpw-Li-uqU"/>
+                <outlet property="imageBackgroundView" destination="TOm-Bo-MCS" id="xuK-FF-dVw"/>
+                <outlet property="roomImageView" destination="Rem-gs-BS9" id="rXN-h0-Zp5"/>
+                <outlet property="roomNamelabel" destination="f4J-6x-nnA" id="hDS-0U-3Mh"/>
+            </connections>
+            <point key="canvasLocation" x="45.038167938931295" y="28.169014084507044"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="livingRoom" width="88" height="64"/>
+    </resources>
+</document>

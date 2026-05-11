@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="53" id="KGk-i7-Jjw" customClass="HomeAccessTableViewCell" customModule="SkromanIsra" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="348" height="53"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="348" height="53"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qru-ZR-UWw">
+                        <rect key="frame" x="0.0" y="0.0" width="348" height="53"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Hometab" translatesAutoresizingMaskIntoConstraints="NO" id="FtY-Lr-55X">
+                                <rect key="frame" x="10" y="11.666666666666664" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="E31-bl-nHx"/>
+                                    <constraint firstAttribute="height" constant="30" id="qOe-ah-M7g"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JlT-Ap-WFa">
+                                <rect key="frame" x="50" y="17.666666666666668" width="36.666666666666657" height="18.000000000000004"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="18" id="I7j-3N-vyE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TNe-pu-ZXN">
+                                <rect key="frame" x="263" y="16.666666666666668" width="20" height="20.000000000000004"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="51f-2O-IZ6"/>
+                                    <constraint firstAttribute="width" constant="20" id="AYO-ik-AMq"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray"/>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.up.chevron.down" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="S27-5G-HS3">
+                                <rect key="frame" x="313" y="15.333333333333329" width="20" height="22.666666666666679"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="Cd9-T8-dG5"/>
+                                    <constraint firstAttribute="width" constant="20" id="DyE-W9-BR9"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="JlT-Ap-WFa" firstAttribute="centerY" secondItem="Qru-ZR-UWw" secondAttribute="centerY" id="4CV-Tn-hRr"/>
+                            <constraint firstItem="FtY-Lr-55X" firstAttribute="leading" secondItem="Qru-ZR-UWw" secondAttribute="leading" constant="10" id="6wr-lA-vZ0"/>
+                            <constraint firstItem="S27-5G-HS3" firstAttribute="leading" secondItem="TNe-pu-ZXN" secondAttribute="trailing" constant="30" id="8rV-Y3-NEo"/>
+                            <constraint firstItem="TNe-pu-ZXN" firstAttribute="centerY" secondItem="Qru-ZR-UWw" secondAttribute="centerY" id="Iw5-e3-bov"/>
+                            <constraint firstItem="JlT-Ap-WFa" firstAttribute="leading" secondItem="FtY-Lr-55X" secondAttribute="trailing" constant="10" id="YrY-bP-egv"/>
+                            <constraint firstAttribute="trailing" secondItem="S27-5G-HS3" secondAttribute="trailing" constant="15" id="h3A-Sr-hgp"/>
+                            <constraint firstItem="S27-5G-HS3" firstAttribute="centerY" secondItem="Qru-ZR-UWw" secondAttribute="centerY" id="lBU-hh-Kah"/>
+                            <constraint firstItem="FtY-Lr-55X" firstAttribute="centerY" secondItem="Qru-ZR-UWw" secondAttribute="centerY" id="qDM-jN-V4z"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="Qru-ZR-UWw" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="F2g-ih-RXw"/>
+                    <constraint firstAttribute="bottom" secondItem="Qru-ZR-UWw" secondAttribute="bottom" id="NLj-2h-YZa"/>
+                    <constraint firstAttribute="trailing" secondItem="Qru-ZR-UWw" secondAttribute="trailing" id="Rc4-y6-bYK"/>
+                    <constraint firstItem="Qru-ZR-UWw" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="tqg-q8-kTe"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="cellBackground" destination="Qru-ZR-UWw" id="DkK-q5-ztL"/>
+                <outlet property="homeNamelabel" destination="JlT-Ap-WFa" id="tRf-os-wkV"/>
+                <outlet property="isExpandImage" destination="S27-5G-HS3" id="Dty-fq-FKA"/>
+                <outlet property="isSelectedHome" destination="TNe-pu-ZXN" id="DAE-kI-dPk"/>
+            </connections>
+            <point key="canvasLocation" x="122.13740458015266" y="22.887323943661972"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="Hometab" width="330" height="330"/>
+        <image name="chevron.up.chevron.down" catalog="system" width="109" height="128"/>
+    </resources>
+</document>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="ShortcutButtonsCollectionViewCell" customModule="SkromanIsra" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cnB-YO-zcm">
+                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bulb" translatesAutoresizingMaskIntoConstraints="NO" id="2bs-WR-s05">
+                                <rect key="frame" x="35" y="24" width="31" height="27"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="31" id="Xxh-1c-q3i"/>
+                                    <constraint firstAttribute="height" constant="27" id="vfq-kr-pMQ"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wuB-hX-Ji2">
+                                <rect key="frame" x="30.000000000000004" y="67" width="41.333333333333343" height="18"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="18" id="V2S-O2-aXW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkbox_checked" translatesAutoresizingMaskIntoConstraints="NO" id="Dt8-7T-wVF">
+                                <rect key="frame" x="80" y="0.0" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="Yot-Ld-cYv"/>
+                                    <constraint firstAttribute="height" constant="20" id="uhP-Rd-JIx"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="2bs-WR-s05" firstAttribute="top" secondItem="cnB-YO-zcm" secondAttribute="top" constant="24" id="1r2-oO-7oa"/>
+                            <constraint firstAttribute="trailing" secondItem="Dt8-7T-wVF" secondAttribute="trailing" id="Pvb-mx-b0e"/>
+                            <constraint firstItem="wuB-hX-Ji2" firstAttribute="leading" secondItem="cnB-YO-zcm" secondAttribute="leading" constant="30" id="Vii-Zg-CHa"/>
+                            <constraint firstItem="Dt8-7T-wVF" firstAttribute="top" secondItem="cnB-YO-zcm" secondAttribute="top" id="WFp-2c-fta"/>
+                            <constraint firstItem="2bs-WR-s05" firstAttribute="leading" secondItem="cnB-YO-zcm" secondAttribute="leading" constant="35" id="lx8-Mu-phd"/>
+                            <constraint firstItem="wuB-hX-Ji2" firstAttribute="top" secondItem="2bs-WR-s05" secondAttribute="bottom" constant="16" id="p8x-3k-5oy"/>
+                            <constraint firstAttribute="trailing" secondItem="2bs-WR-s05" secondAttribute="trailing" constant="34" id="xZm-Gw-ccx"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="cnB-YO-zcm" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="ZjY-CW-BJ0"/>
+                <constraint firstItem="cnB-YO-zcm" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="blT-OJ-PR5"/>
+                <constraint firstAttribute="bottom" secondItem="cnB-YO-zcm" secondAttribute="bottom" id="pVb-ll-W5m"/>
+                <constraint firstAttribute="trailing" secondItem="cnB-YO-zcm" secondAttribute="trailing" id="w3k-23-8Ed"/>
+            </constraints>
+            <size key="customSize" width="100" height="100"/>
+            <connections>
+                <outlet property="buttonImageView" destination="2bs-WR-s05" id="a8g-Qk-yZN"/>
+                <outlet property="buttonNamelabel" destination="wuB-hX-Ji2" id="2Im-Qn-Mte"/>
+                <outlet property="deviceview" destination="cnB-YO-zcm" id="0Zd-9q-6sW"/>
+                <outlet property="selectedImageView" destination="Dt8-7T-wVF" id="kcC-83-ra1"/>
+            </connections>
+            <point key="canvasLocation" x="38.167938931297705" y="37.323943661971832"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="bulb" width="512" height="512"/>
+        <image name="checkbox_checked" width="24" height="24"/>
+    </resources>
+</document>

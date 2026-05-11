@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ScenesCollectionViewCell" id="gTV-IL-0wX" customClass="ScenesCollectionViewCell" customModule="SkromanIsra" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A3q-YC-gd9">
+                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lightbulb" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="it8-Ky-rBW">
+                                <rect key="frame" x="25" y="14.333333333333329" width="50" height="51"/>
+                                <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="9In-ZU-0XK"/>
+                                    <constraint firstAttribute="height" constant="50" id="Lqc-a2-y8e"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fsW-9d-HmQ">
+                                <rect key="frame" x="5" y="73" width="90" height="16"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="16" id="liv-gj-7jN"/>
+                                    <constraint firstAttribute="width" constant="90" id="wRc-ag-2vO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="fsW-9d-HmQ" secondAttribute="bottom" constant="11" id="JNt-Gm-gMO"/>
+                            <constraint firstItem="it8-Ky-rBW" firstAttribute="top" secondItem="A3q-YC-gd9" secondAttribute="top" constant="15" id="NkV-Fh-DYp"/>
+                            <constraint firstItem="it8-Ky-rBW" firstAttribute="leading" secondItem="A3q-YC-gd9" secondAttribute="leading" constant="25" id="kVf-JN-R5c"/>
+                            <constraint firstItem="fsW-9d-HmQ" firstAttribute="centerX" secondItem="it8-Ky-rBW" secondAttribute="centerX" id="pDs-Rh-RJ6"/>
+                            <constraint firstItem="fsW-9d-HmQ" firstAttribute="top" secondItem="it8-Ky-rBW" secondAttribute="bottom" constant="8" symbolic="YES" id="y7F-iK-uVt"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="A3q-YC-gd9" secondAttribute="bottom" id="2Hp-78-ur4"/>
+                <constraint firstItem="A3q-YC-gd9" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Mmw-e8-Mo8"/>
+                <constraint firstItem="A3q-YC-gd9" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="oVN-zo-bIM"/>
+                <constraint firstAttribute="trailing" secondItem="A3q-YC-gd9" secondAttribute="trailing" id="sH6-Yk-iox"/>
+            </constraints>
+            <size key="customSize" width="100" height="100"/>
+            <connections>
+                <outlet property="cellbackgroundview" destination="A3q-YC-gd9" id="bLb-da-ng5"/>
+                <outlet property="deviceImageView" destination="it8-Ky-rBW" id="YSc-Pz-Esi"/>
+                <outlet property="deviceNamelabel" destination="fsW-9d-HmQ" id="AuQ-Ig-tH2"/>
+            </connections>
+            <point key="canvasLocation" x="175.57251908396947" y="37.323943661971832"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="lightbulb" catalog="system" width="92" height="128"/>
+    </resources>
+</document>

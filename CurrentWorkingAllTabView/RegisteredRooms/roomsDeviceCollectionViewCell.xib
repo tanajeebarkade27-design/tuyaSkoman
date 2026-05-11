@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="roomsDeviceCollectionViewCell" customModule="SkromanIsra" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="70" height="80"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="70" height="80"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XZn-sX-SSn">
+                        <rect key="frame" x="0.0" y="0.0" width="70" height="80"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="akC-Da-mHo">
+                                <rect key="frame" x="10" y="7" width="50" height="48"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="LightBulb" translatesAutoresizingMaskIntoConstraints="NO" id="h39-Z5-UT8">
+                                        <rect key="frame" x="12" y="12" width="25" height="25"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="7fF-mb-GAi"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h6q-Q3-efV">
+                                <rect key="frame" x="17.333333333333329" y="60" width="31" height="15"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="15" id="9Nn-Rq-1x8"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="15" id="Y8T-ER-SY4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="h6q-Q3-efV" firstAttribute="leading" secondItem="XZn-sX-SSn" secondAttribute="leading" constant="17.333333333333329" id="EBU-bi-YtL"/>
+                            <constraint firstItem="akC-Da-mHo" firstAttribute="leading" secondItem="XZn-sX-SSn" secondAttribute="leading" constant="10" id="IsX-dp-VBF"/>
+                            <constraint firstItem="akC-Da-mHo" firstAttribute="top" secondItem="XZn-sX-SSn" secondAttribute="top" constant="7" id="SKe-LS-t3X"/>
+                            <constraint firstItem="h6q-Q3-efV" firstAttribute="top" secondItem="akC-Da-mHo" secondAttribute="bottom" constant="5" id="kZn-g2-ONE"/>
+                            <constraint firstAttribute="trailing" secondItem="akC-Da-mHo" secondAttribute="trailing" constant="10" id="ur0-aB-sVl"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="XZn-sX-SSn" secondAttribute="trailing" id="0UX-hQ-TUH"/>
+                <constraint firstItem="XZn-sX-SSn" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="RCW-XR-H9X"/>
+                <constraint firstAttribute="bottom" secondItem="XZn-sX-SSn" secondAttribute="bottom" id="pwE-Vd-SZ7"/>
+                <constraint firstItem="XZn-sX-SSn" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="qk5-Ky-uiS"/>
+            </constraints>
+            <size key="customSize" width="70" height="80"/>
+            <connections>
+                <outlet property="deviceImage" destination="h39-Z5-UT8" id="EEI-C8-G66"/>
+                <outlet property="deviceName" destination="h6q-Q3-efV" id="izA-KA-ftK"/>
+                <outlet property="imageView" destination="akC-Da-mHo" id="k99-Lx-kzf"/>
+            </connections>
+            <point key="canvasLocation" x="36.641221374045799" y="30.281690140845072"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="LightBulb" width="96" height="96"/>
+    </resources>
+</document>
