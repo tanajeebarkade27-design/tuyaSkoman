@@ -22,7 +22,7 @@ protocol AllRoomsDelegate: AnyObject {
 }
 
 
-class AllRoomsViewController: UIViewController, DeviceListTableViewCell.DeviceListTableViewCellDelegate {
+class AllRoomsViewController: UIViewController, DeviceListTableViewCell.DeviceListTableViewCellDelegate , UIGestureRecognizerDelegate{
 
     @IBOutlet weak var roomView: UIView!
     @IBOutlet var backgroundView: UIView!
@@ -263,13 +263,13 @@ class AllRoomsViewController: UIViewController, DeviceListTableViewCell.DeviceLi
             collectionView(catagaryCollectionView, didSelectItemAt: firstCategoryIndexPath)
         connetion_aws_function()
         
-//        let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleRoomSwipe(_:)))
-//        leftSwipe.direction = .left
-//        shortcutView.addGestureRecognizer(leftSwipe)
+        let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleRoomSwipe(_:)))
+        leftSwipe.direction = .left
+        shortcutView.addGestureRecognizer(leftSwipe)
 
-//        let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleRoomSwipe(_:)))
-//        rightSwipe.direction = .right
-//        shortcutView.addGestureRecognizer(rightSwipe)
+        let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleRoomSwipe(_:)))
+        rightSwipe.direction = .right
+        shortcutView.addGestureRecognizer(rightSwipe)
        
         
         NotificationCenter.default.addObserver(
@@ -2596,7 +2596,6 @@ extension AllRoomsViewController:UICollectionViewDataSource, UICollectionViewDel
             let rightInset: CGFloat = 8
             let spacing: CGFloat = 8
             let columns: CGFloat = 2
-
             let totalSpacing = leftInset + rightInset + spacing * (columns - 1)
             let availableWidth = collectionView.bounds.width - totalSpacing
             let baseCellWidth = availableWidth / columns

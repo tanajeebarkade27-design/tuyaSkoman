@@ -76,6 +76,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         ThingSmartSDK.sharedInstance().debugMode = true
 #endif
         setupPushNotifications(application: application)
+
+        // If we relaunch and the user is already logged in, make sure
+        // the push switches on the Tuya server are still ON. The token
+        // itself will be re-supplied by didRegisterForRemoteNotifications.
+        enableTuyaPushIfLoggedIn()
         
         
         if let devId = UserDefaults.standard.string(forKey: "last_lock_devId") {
@@ -99,12 +104,71 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         _ application: UIApplication,
         didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data
     ) {
-       
+
         Messaging.messaging().apnsToken = deviceToken
 
-        
         let tokenString = deviceToken.map { String(format: "%02.2hhx", $0) }.joined()
         print("APNs Token:", tokenString)
+
+        // ✅ Hand the APNs token to the Tuya SDK so the cloud can
+        // route lock / device notifications (remote unlock, alarms, etc.)
+        // to this device. Without this Tuya push will NEVER fire.
+        ThingSmartSDK.sharedInstance().setDeviceToken(deviceToken, withError: nil, success: { _ in
+            print("✅ Tuya: device token registered")
+            self.enableTuyaPushIfLoggedIn()
+        }, failure: { error in
+            print("❌ Tuya: device token register failed:", error?.localizedDescription ?? "")
+        })
+    }
+
+    func application(
+        _ application: UIApplication,
+        didFailToRegisterForRemoteNotificationsWithError error: Error
+    ) {
+        print("Failed to register for notifications:", error)
+
+        // Inform Tuya about the failure too so it can clear its state.
+        ThingSmartSDK.sharedInstance().setDeviceToken(nil, withError: error)
+    }
+
+    /// Turns ON all Tuya push channels for the logged-in account.
+    /// Safe to call multiple times; Tuya treats it as idempotent.
+    private func enableTuyaPushIfLoggedIn() {
+
+        guard ThingSmartUser.sharedInstance().isLogin else {
+            print("⚠️ Tuya: user not logged in, skip push enable")
+            return
+        }
+
+        let sdk = ThingSmartSDK.sharedInstance()
+
+        // Master app push switch
+        sdk.setPushStatusWithStatus(true, success: {
+            print("✅ Tuya: app push enabled")
+        }, failure: { err in
+            print("❌ Tuya: app push enable failed:", err?.localizedDescription ?? "")
+        })
+
+        // Device alert push (lock unlock requests, alarms, sensor triggers, ...)
+        sdk.setDevicePushStatusWithStauts(true, success: {
+            print("✅ Tuya: device alert push enabled")
+        }, failure: { err in
+            print("❌ Tuya: device push enable failed:", err?.localizedDescription ?? "")
+        })
+
+        // Home / family push
+        sdk.setFamilyPushStatusWithStauts(true, success: {
+            print("✅ Tuya: family push enabled")
+        }, failure: { err in
+            print("❌ Tuya: family push enable failed:", err?.localizedDescription ?? "")
+        })
+
+        // Notice / system message push
+        sdk.setNoticePushStatusWithStauts(true, success: {
+            print("✅ Tuya: notice push enabled")
+        }, failure: { err in
+            print("❌ Tuya: notice push enable failed:", err?.localizedDescription ?? "")
+        })
     }
     
 
@@ -124,13 +188,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         )
     }
 
-
-    func application(
-        _ application: UIApplication,
-        didFailToRegisterForRemoteNotificationsWithError error: Error
-    ) {
-        print("Failed to register for notifications:", error)
-    }
 
 private func setupPushNotifications(application: UIApplication) {
             if #available(iOS 10.0, *) {
@@ -243,46 +300,37 @@ private func setupPushNotifications(application: UIApplication) {
     
    
     @available(iOS 10.0, *)
-    @available(iOS 10.0, *)
-//    func userNotificationCenter(_ center: UNUserNotificationCenter,
-//                                didReceive response: UNNotificationResponse,
-//                                withCompletionHandler completionHandler: @escaping () -> Void) {
-//
-//        let userInfo = response.notification.request.content.userInfo
-//        let title = response.notification.request.content.title
-//
-//        print("📩 Notification tapped:", userInfo)
-//        print("📩 Title:", title)
-//
-//        if isSupportPaymentSuccess(userInfo: userInfo) {
-//            handleSupportPaymentNotificationTap(userInfo: userInfo)
-//            completionHandler()
-//            return
-//        }
-        
-       
-//        if title == "Remote unlocking request" {
-//
-//            let devId = userInfo["devId"] as? String ?? ""
-//            self.pendingDevIdFromNotification = devId
-//
-//            print("📌 Stored devId from tap:", devId)
-//
-//           
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-//
-//                if self.pendingUnlockDevice == nil {
-//                    print("⚠️ DPS not received → fallback open VC")
-//
-//                    self.pendingUnlockDevice = ThingSmartLockDevice(deviceId: devId)
-//                    self.pendingUnlockDevice?.delegate = self
-//
-//                    self.openLockScreenVC(devId: devId)
-//                }
-//            }
-//        }
-//        completionHandler()
-//    }
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                didReceive response: UNNotificationResponse,
+                                withCompletionHandler completionHandler: @escaping () -> Void) {
+
+        let userInfo = response.notification.request.content.userInfo
+        let title = response.notification.request.content.title
+
+        print("📩 Notification tapped:", userInfo)
+        print("📩 Title:", title)
+
+        if title == "Remote unlocking request" {
+
+            let devId = userInfo["devId"] as? String ?? ""
+            self.pendingDevIdFromNotification = devId
+
+            print("📌 Stored devId from tap:", devId)
+
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+
+                if self.pendingUnlockDevice == nil {
+                    print("⚠️ DPS not received → fallback open VC")
+
+                    self.pendingUnlockDevice = ThingSmartLockDevice(deviceId: devId)
+                    self.pendingUnlockDevice?.delegate = self
+
+                    self.openLockScreenVC(devId: devId)
+                }
+            }
+        }
+        completionHandler()
+    }
     
     func openLockScreenVC(devId: String) {
 
@@ -391,6 +439,13 @@ private func setupPushNotifications(application: UIApplication) {
         completionHandler([.banner, .sound, .badge])
     }
     
+
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        // Re-arm the Tuya push switches whenever the app comes to
+        // the foreground (covers the case where the user just logged
+        // in within the same launch).
+        enableTuyaPushIfLoggedIn()
+    }
 
     // MARK: UISceneSession Lifecycle
 

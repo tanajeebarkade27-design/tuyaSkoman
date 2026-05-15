@@ -26,6 +26,9 @@ class AddOfflinePassListVC: UIViewController {
     
     @IBOutlet weak var passowrdnameText: UITextField!
     
+    
+    
+    
     var currentDateType: DateType?
    
     var tuyaDeviceId: String?

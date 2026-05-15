@@ -14,22 +14,22 @@
 	<string>This app needs location access to get the current Wi-Fi network name.</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>Your location is used in the background for geofence.</string>
-	<key>NSBluetoothAlwaysUsageDescription</key>
-	<string>Bluetooth is used to connect and communicate with devices.</string>
+    <key>NSBluetoothAlwaysUsageDescription</key>
+    <string>Bluetooth is used to connect and communicate with devices.</string>
+
+    <key>UIBackgroundModes</key>
+    <array>
+        <string>bluetooth-central</string>
+    </array>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>For profile image select</string>
     <key>NSLocalNetworkUsageDescription</key>
     <string>This app needs local network access to discover devices</string>
-    <key>NSLocalNetworkUsageDescription</key>
-    <string>This app needs local network access to discover devices</string>
-    
-    
+
     <key>NSBonjourServices</key>
     <array>
         <string>_tylink._tcp</string>
         <string>_tuyalink._tcp</string>
-        <string>_tcp</string>
-        <string>_udp</string>
     </array>
 	<key>ESP Application Setting</key>
 	<dict>

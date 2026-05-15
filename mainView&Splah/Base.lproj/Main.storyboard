@@ -17936,18 +17936,13 @@ Connect your mobile phone to the Wi-Fi network with a name like SKSL_XXXXXX</str
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Group 1000001977" translatesAutoresizingMaskIntoConstraints="NO" id="wdx-Is-afh">
-                                        <rect key="frame" x="121.66666666666669" y="150" width="150" height="150"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="150" id="jmr-BP-2Fy"/>
-                                            <constraint firstAttribute="width" constant="150" id="ksv-G1-FJN"/>
-                                        </constraints>
-                                    </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Vector 1" translatesAutoresizingMaskIntoConstraints="NO" id="SIA-Fi-zVk">
                                         <rect key="frame" x="166.66666666666666" y="330" width="60" height="25"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="60" id="19s-I1-IyQ"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="3fD-T2-DZ8"/>
                                             <constraint firstAttribute="height" constant="25" id="E04-Mb-YpT"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="25" id="LYz-Yq-Rhp"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sba-PG-IpX">
@@ -17984,11 +17979,11 @@ Connect your mobile phone to the Wi-Fi network with a name like SKSL_XXXXXX</str
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lock Alerts" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IxS-un-nX0">
-                                                <rect key="frame" x="65" y="15" width="54.333333333333343" height="20"/>
+                                                <rect key="frame" x="80" y="15" width="76" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="OEj-bb-vww"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -17999,17 +17994,17 @@ Connect your mobile phone to the Wi-Fi network with a name like SKSL_XXXXXX</str
                                             <constraint firstItem="Y68-5m-K95" firstAttribute="leading" secondItem="8jn-JA-Kea" secondAttribute="leading" constant="20" id="R2a-hu-LxX"/>
                                             <constraint firstAttribute="height" constant="50" id="fzy-Lz-aNi"/>
                                             <constraint firstItem="IxS-un-nX0" firstAttribute="centerY" secondItem="8jn-JA-Kea" secondAttribute="centerY" id="jR9-vJ-IvH"/>
-                                            <constraint firstItem="IxS-un-nX0" firstAttribute="leading" secondItem="Y68-5m-K95" secondAttribute="trailing" constant="10" id="sso-bT-RId"/>
+                                            <constraint firstItem="IxS-un-nX0" firstAttribute="leading" secondItem="Y68-5m-K95" secondAttribute="trailing" constant="25" id="sso-bT-RId"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VT5-na-q3u">
-                                        <rect key="frame" x="36.666666666666657" y="476" width="320" height="50"/>
+                                        <rect key="frame" x="30" y="476" width="333" height="50"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gud-uu-kkW">
                                                 <rect key="frame" x="20" y="5" width="40" height="40"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lockBtn" translatesAutoresizingMaskIntoConstraints="NO" id="C3f-BE-qak">
-                                                        <rect key="frame" x="7.3333333333333357" y="7.6666666666666288" width="25" height="25"/>
+                                                        <rect key="frame" x="7.6666666666666643" y="7.6666666666666288" width="25" height="25"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="25" id="EpB-XT-qat"/>
                                                             <constraint firstAttribute="width" constant="25" id="XBa-lW-fIj"/>
@@ -18018,6 +18013,8 @@ Connect your mobile phone to the Wi-Fi network with a name like SKSL_XXXXXX</str
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="1k7-cE-PEG"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="Agj-2J-qMQ"/>
                                                     <constraint firstAttribute="height" constant="40" id="axO-xZ-0bL"/>
                                                     <constraint firstItem="C3f-BE-qak" firstAttribute="centerY" secondItem="gud-uu-kkW" secondAttribute="centerY" id="fcT-U8-aHs"/>
                                                     <constraint firstAttribute="width" constant="40" id="nhA-cB-Vsf"/>
@@ -18025,10 +18022,9 @@ Connect your mobile phone to the Wi-Fi network with a name like SKSL_XXXXXX</str
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temporary Password" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eJj-RK-0gB">
-                                                <rect key="frame" x="85" y="8" width="150" height="21"/>
+                                                <rect key="frame" x="84.999999999999986" y="8" width="141.66666666666663" height="21"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="21" id="ZPl-Mg-eyL"/>
-                                                    <constraint firstAttribute="width" constant="150" id="ckb-VE-ks8"/>
+                                                    <constraint firstAttribute="height" constant="21" id="JoM-AN-a8n"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -18045,26 +18041,25 @@ Connect your mobile phone to the Wi-Fi network with a name like SKSL_XXXXXX</str
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.forward" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Yb5-dF-5Ej">
-                                                <rect key="frame" x="280" y="14.666666666666625" width="25" height="21.333333333333339"/>
+                                                <rect key="frame" x="288" y="14.999999999999996" width="25" height="21.333333333333339"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="25" id="gPV-mQ-6sI"/>
-                                                    <constraint firstAttribute="height" constant="25" id="j1S-7c-EcX"/>
+                                                    <constraint firstAttribute="width" constant="25" id="A7M-zw-hvk"/>
+                                                    <constraint firstAttribute="height" constant="25" id="HRA-fj-Xxj"/>
                                                 </constraints>
                                             </imageView>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="eJj-RK-0gB" firstAttribute="centerX" secondItem="VT5-na-q3u" secondAttribute="centerX" id="9e6-52-19i"/>
-                                            <constraint firstItem="gud-uu-kkW" firstAttribute="centerY" secondItem="VT5-na-q3u" secondAttribute="centerY" id="PzW-mY-7hh"/>
+                                            <constraint firstAttribute="trailing" secondItem="Yb5-dF-5Ej" secondAttribute="trailing" constant="20" id="6it-8u-SZV"/>
+                                            <constraint firstItem="eJj-RK-0gB" firstAttribute="leading" secondItem="gud-uu-kkW" secondAttribute="trailing" constant="25" id="8nm-j3-Klm"/>
+                                            <constraint firstItem="eJj-RK-0gB" firstAttribute="top" secondItem="VT5-na-q3u" secondAttribute="top" constant="8" id="Gg6-nB-1cT"/>
+                                            <constraint firstItem="Yb5-dF-5Ej" firstAttribute="top" secondItem="VT5-na-q3u" secondAttribute="top" constant="13" id="MTj-R7-o6k"/>
                                             <constraint firstItem="sti-j8-1be" firstAttribute="leading" secondItem="gud-uu-kkW" secondAttribute="trailing" constant="30" id="UI3-Bp-RFj"/>
-                                            <constraint firstItem="sti-j8-1be" firstAttribute="top" secondItem="eJj-RK-0gB" secondAttribute="bottom" constant="2" id="WDS-H5-2fe"/>
-                                            <constraint firstAttribute="width" constant="320" id="YmQ-ZB-zwC"/>
-                                            <constraint firstItem="gud-uu-kkW" firstAttribute="leading" secondItem="VT5-na-q3u" secondAttribute="leading" constant="20" id="fPN-Sk-jCL"/>
-                                            <constraint firstAttribute="height" constant="50" id="fmZ-6F-hQb"/>
-                                            <constraint firstItem="eJj-RK-0gB" firstAttribute="top" secondItem="VT5-na-q3u" secondAttribute="top" constant="8" id="oIO-i9-Grn"/>
-                                            <constraint firstItem="Yb5-dF-5Ej" firstAttribute="centerY" secondItem="VT5-na-q3u" secondAttribute="centerY" id="t3s-GP-OjU"/>
-                                            <constraint firstAttribute="trailing" secondItem="Yb5-dF-5Ej" secondAttribute="trailing" constant="15" id="ygc-k5-4ER"/>
+                                            <constraint firstItem="gud-uu-kkW" firstAttribute="leading" secondItem="VT5-na-q3u" secondAttribute="leading" constant="20" symbolic="YES" id="aNH-qx-YsR"/>
+                                            <constraint firstItem="gud-uu-kkW" firstAttribute="top" secondItem="VT5-na-q3u" secondAttribute="top" constant="5" id="btK-xa-Nhn"/>
+                                            <constraint firstAttribute="height" constant="50" id="lPR-mY-21J"/>
+                                            <constraint firstItem="sti-j8-1be" firstAttribute="top" secondItem="eJj-RK-0gB" secondAttribute="bottom" constant="2" id="rgv-UK-PBu"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ML9-nv-r3I">
@@ -18090,7 +18085,7 @@ Connect your mobile phone to the Wi-Fi network with a name like SKSL_XXXXXX</str
                                                     <constraint firstItem="13w-OQ-9qy" firstAttribute="centerX" secondItem="trN-9r-UZT" secondAttribute="centerX" id="pkD-Ai-BdO"/>
                                                 </constraints>
                                             </view>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OfflinePassword" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3oP-LR-szn">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OfflinePassword" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3oP-LR-szn">
                                                 <rect key="frame" x="85" y="8" width="150" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="JPL-5C-fw6"/>
@@ -18151,29 +18146,49 @@ Connect your mobile phone to the Wi-Fi network with a name like SKSL_XXXXXX</str
                                             <action selector="menuBtn:" destination="fUU-e0-4nP" eventType="touchUpInside" id="Eed-eB-m5e"/>
                                         </connections>
                                     </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9MJ-YP-bJY">
+                                        <rect key="frame" x="136.66666666666666" y="150" width="119.99999999999997" height="120"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="smartLock" translatesAutoresizingMaskIntoConstraints="NO" id="wdx-Is-afh">
+                                                <rect key="frame" x="20" y="20" width="80" height="80"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="80" id="i4n-uO-vI3"/>
+                                                    <constraint firstAttribute="height" constant="80" id="pD5-Tv-ZnB"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="120" id="Kwr-XQ-Kto"/>
+                                            <constraint firstItem="wdx-Is-afh" firstAttribute="centerY" secondItem="9MJ-YP-bJY" secondAttribute="centerY" id="bWa-kE-hgL"/>
+                                            <constraint firstAttribute="height" constant="120" id="cxv-Ux-X2X"/>
+                                            <constraint firstItem="wdx-Is-afh" firstAttribute="centerX" secondItem="9MJ-YP-bJY" secondAttribute="centerX" id="kuG-8h-VmX"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="VT5-na-q3u" firstAttribute="top" secondItem="8jn-JA-Kea" secondAttribute="bottom" constant="20" id="3Ua-uY-Peb"/>
                                     <constraint firstItem="8jn-JA-Kea" firstAttribute="leading" secondItem="BaA-0M-aP1" secondAttribute="leading" constant="30" id="7Zl-mj-MGX"/>
                                     <constraint firstItem="ML9-nv-r3I" firstAttribute="leading" secondItem="BaA-0M-aP1" secondAttribute="leading" constant="30" id="7kp-Si-b7D"/>
+                                    <constraint firstItem="ML9-nv-r3I" firstAttribute="top" secondItem="VT5-na-q3u" secondAttribute="bottom" constant="20" id="8Xd-b5-4I7"/>
                                     <constraint firstItem="SIA-Fi-zVk" firstAttribute="leading" secondItem="sba-PG-IpX" secondAttribute="trailing" constant="5" id="Abf-LE-UWR"/>
-                                    <constraint firstItem="wdx-Is-afh" firstAttribute="top" secondItem="BaA-0M-aP1" secondAttribute="top" constant="150" id="Fh5-Lv-Oo4"/>
+                                    <constraint firstItem="sba-PG-IpX" firstAttribute="top" secondItem="9MJ-YP-bJY" secondAttribute="bottom" constant="58" id="GvD-z7-QZJ"/>
                                     <constraint firstItem="OkB-QG-kLn" firstAttribute="leading" secondItem="Ac0-Fb-DfO" secondAttribute="trailing" constant="10" id="GwZ-jV-WVY"/>
                                     <constraint firstAttribute="trailing" secondItem="8jn-JA-Kea" secondAttribute="trailing" constant="30" id="Jia-DY-z8j"/>
                                     <constraint firstItem="Ac0-Fb-DfO" firstAttribute="top" secondItem="BaA-0M-aP1" secondAttribute="top" constant="10" id="NT6-7N-onB"/>
                                     <constraint firstItem="OkB-QG-kLn" firstAttribute="top" secondItem="BaA-0M-aP1" secondAttribute="top" constant="16" id="NzF-O0-nWH"/>
-                                    <constraint firstItem="VT5-na-q3u" firstAttribute="top" secondItem="8jn-JA-Kea" secondAttribute="bottom" constant="20" id="Qzw-H9-Zvg"/>
+                                    <constraint firstAttribute="trailing" secondItem="VT5-na-q3u" secondAttribute="trailing" constant="30" id="SEU-Hj-SHa"/>
                                     <constraint firstAttribute="trailing" secondItem="ML9-nv-r3I" secondAttribute="trailing" constant="30" id="V4S-k0-qMm"/>
                                     <constraint firstItem="Ac0-Fb-DfO" firstAttribute="leading" secondItem="BaA-0M-aP1" secondAttribute="leading" constant="10" id="V6c-lh-R8J"/>
                                     <constraint firstItem="8jn-JA-Kea" firstAttribute="top" secondItem="sba-PG-IpX" secondAttribute="bottom" constant="50" id="Vw5-Ze-pVW"/>
                                     <constraint firstItem="SIA-Fi-zVk" firstAttribute="centerX" secondItem="BaA-0M-aP1" secondAttribute="centerX" id="Wgu-Ac-0ED"/>
+                                    <constraint firstItem="VT5-na-q3u" firstAttribute="leading" secondItem="BaA-0M-aP1" secondAttribute="leading" constant="30" id="Wzr-We-9FZ"/>
                                     <constraint firstAttribute="trailing" secondItem="VGk-pN-bCr" secondAttribute="trailing" constant="15" id="ZAQ-66-QQJ"/>
-                                    <constraint firstItem="wdx-Is-afh" firstAttribute="centerX" secondItem="BaA-0M-aP1" secondAttribute="centerX" id="a61-JU-0TP"/>
-                                    <constraint firstItem="VT5-na-q3u" firstAttribute="centerX" secondItem="BaA-0M-aP1" secondAttribute="centerX" id="anM-5x-i6q"/>
-                                    <constraint firstItem="SIA-Fi-zVk" firstAttribute="top" secondItem="wdx-Is-afh" secondAttribute="bottom" constant="30" id="hUg-MY-igL"/>
+                                    <constraint firstItem="SIA-Fi-zVk" firstAttribute="top" secondItem="9MJ-YP-bJY" secondAttribute="bottom" constant="60" id="iba-Du-3bo"/>
                                     <constraint firstItem="VGk-pN-bCr" firstAttribute="top" secondItem="BaA-0M-aP1" secondAttribute="top" constant="10" id="lEt-b6-qF2"/>
-                                    <constraint firstItem="ML9-nv-r3I" firstAttribute="top" secondItem="VT5-na-q3u" secondAttribute="bottom" constant="20" id="zHm-3j-zyp"/>
-                                    <constraint firstItem="sba-PG-IpX" firstAttribute="top" secondItem="wdx-Is-afh" secondAttribute="bottom" constant="28" id="zrW-eI-11j"/>
+                                    <constraint firstItem="9MJ-YP-bJY" firstAttribute="centerX" secondItem="BaA-0M-aP1" secondAttribute="centerX" id="wMm-cv-qzE"/>
+                                    <constraint firstItem="9MJ-YP-bJY" firstAttribute="top" secondItem="BaA-0M-aP1" secondAttribute="top" constant="150" id="wgt-TQ-cQW"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -18187,6 +18202,7 @@ Connect your mobile phone to the Wi-Fi network with a name like SKSL_XXXXXX</str
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="Bellpress" destination="9MJ-YP-bJY" id="FsD-K4-MzK"/>
                         <outlet property="batteryLevel" destination="sba-PG-IpX" id="O0R-nD-yfN"/>
                         <outlet property="lockAlertView" destination="8jn-JA-Kea" id="6gl-ef-JWi"/>
                         <outlet property="offlinePassword" destination="ML9-nv-r3I" id="LDN-Sa-BPq"/>
@@ -19353,13 +19369,67 @@ Connect your mobile phone to the Wi-Fi network with a name like SKSL_XXXXXX</str
                     <view key="view" contentMode="scaleToFill" id="OIX-k5-tKu">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FjG-mB-gCc">
+                                <rect key="frame" x="0.0" y="118" width="393" height="666"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Lock By Bluetooth" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NJ5-6s-pb4">
+                                        <rect key="frame" x="50" y="15" width="173" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="t8P-Xh-S0T"/>
+                                            <constraint firstAttribute="height" constant="20" id="vSL-3a-WEN"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eJ9-E7-oYa">
+                                        <rect key="frame" x="10" y="10" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="mXZ-gT-Jdw"/>
+                                            <constraint firstAttribute="width" constant="30" id="wXI-K3-Dw3"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="chevron.backward" catalog="system"/>
+                                        <connections>
+                                            <action selector="backBtn:" destination="oq4-cZ-YnW" eventType="touchUpInside" id="RCh-tm-b4Y"/>
+                                        </connections>
+                                    </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RlM-yf-QaQ">
+                                        <rect key="frame" x="0.0" y="45" width="393" height="621"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="RlM-yf-QaQ" firstAttribute="top" secondItem="NJ5-6s-pb4" secondAttribute="bottom" constant="10" id="N8p-XE-zrt"/>
+                                    <constraint firstItem="eJ9-E7-oYa" firstAttribute="top" secondItem="FjG-mB-gCc" secondAttribute="top" constant="10" id="RwS-gW-7sV"/>
+                                    <constraint firstItem="RlM-yf-QaQ" firstAttribute="leading" secondItem="FjG-mB-gCc" secondAttribute="leading" id="SDl-aG-jU4"/>
+                                    <constraint firstItem="NJ5-6s-pb4" firstAttribute="leading" secondItem="eJ9-E7-oYa" secondAttribute="trailing" constant="10" id="az7-1d-ajB"/>
+                                    <constraint firstItem="eJ9-E7-oYa" firstAttribute="centerY" secondItem="NJ5-6s-pb4" secondAttribute="centerY" id="bMW-7Z-ryD"/>
+                                    <constraint firstAttribute="bottom" secondItem="RlM-yf-QaQ" secondAttribute="bottom" id="egZ-YD-CjM"/>
+                                    <constraint firstAttribute="trailing" secondItem="RlM-yf-QaQ" secondAttribute="trailing" id="gQp-FA-iHl"/>
+                                    <constraint firstItem="eJ9-E7-oYa" firstAttribute="leading" secondItem="FjG-mB-gCc" secondAttribute="leading" constant="10" id="v0v-rq-L4h"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="cvH-NU-xEU"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="FjG-mB-gCc" firstAttribute="trailing" secondItem="cvH-NU-xEU" secondAttribute="trailing" id="3Tj-po-GUj"/>
+                            <constraint firstItem="FjG-mB-gCc" firstAttribute="top" secondItem="cvH-NU-xEU" secondAttribute="top" id="U2b-Hj-bxc"/>
+                            <constraint firstItem="cvH-NU-xEU" firstAttribute="bottom" secondItem="FjG-mB-gCc" secondAttribute="bottom" id="XTb-TE-ySh"/>
+                            <constraint firstItem="FjG-mB-gCc" firstAttribute="leading" secondItem="OIX-k5-tKu" secondAttribute="leading" id="bKN-TU-I0R"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="pairProcessView" destination="RlM-yf-QaQ" id="vRD-z7-onO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mPB-gT-Jwg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5630" y="7011"/>
+            <point key="canvasLocation" x="-6124.4274809160306" y="7031.6901408450703"/>
         </scene>
     </scenes>
     <resources>
@@ -19367,7 +19437,6 @@ Connect your mobile phone to the Wi-Fi network with a name like SKSL_XXXXXX</str
         <image name="AcImage" width="72" height="84"/>
         <image name="AppIcon1" width="512" height="512"/>
         <image name="Group 1000001960" width="446" height="271"/>
-        <image name="Group 1000001977" width="600" height="600"/>
         <image name="Screen Background" width="464" height="1008"/>
         <image name="Vector 1" width="206" height="120"/>
         <image name="afternoon" width="512" height="512"/>
@@ -19435,6 +19504,7 @@ Connect your mobile phone to the Wi-Fi network with a name like SKSL_XXXXXX</str
         <image name="scene3" width="80" height="88"/>
         <image name="selectLock" width="330" height="330"/>
         <image name="skroman_Icon" width="500" height="500"/>
+        <image name="smartLock" width="200" height="200"/>
         <image name="square.and.pencil" catalog="system" width="128" height="121"/>
         <image name="square.and.pencil.circle" catalog="system" width="128" height="123"/>
         <image name="suit.heart" catalog="system" width="128" height="107"/>

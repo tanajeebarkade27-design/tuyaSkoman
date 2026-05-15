@@ -122,17 +122,17 @@ print ("ssid\(ssid) password\(password) tuyaHomeId\(tuyaHomeId) tuyaRoomId\(tuya
             return
         }
         
-//        let vc = self.storyboard?.instantiateViewController(
-//            identifier: "BLEmethodViewController"
-//        ) as! BLEmethodViewController
-//
-//        vc.ssid = ssid
-//        vc.password = password
-//        vc.tuyaHomeId = homeId
-//        vc.tuyaRoomId = roomId
-//         print  ("passing parameter \(ssid)  password \(password) homeId:\(homeId) roomId\(roomId)")
-//
-//        self.navigationController?.pushViewController(vc, animated: true)
+        let vc = self.storyboard?.instantiateViewController(
+            identifier: "BLEmethodViewController"
+        ) as! BLEmethodViewController
+
+        vc.ssid = ssid
+        vc.password = password
+        vc.tuyaHomeId = homeId
+        vc.tuyaRoomId = roomId
+        print("passing parameter \(ssid) password \(password) homeId:\(homeId) roomId:\(roomId)")
+
+        self.navigationController?.pushViewController(vc, animated: true)
 
         
     }

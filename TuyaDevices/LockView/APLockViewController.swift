@@ -229,7 +229,6 @@ class APLockViewController: UIViewController, ThingSmartActivatorDelegate {
             print("❌ Token failed:", error?.localizedDescription ?? "Unknown")
         })
     }
-    
     func openWiFiSettings() {
         if let url = URL(string: "App-Prefs:root=WIFI") {
             UIApplication.shared.open(url)
@@ -287,23 +286,57 @@ class APLockViewController: UIViewController, ThingSmartActivatorDelegate {
 
     func startFallbackCheck() {
 
-        print("⏳ Starting fallback timer...")
+        print("⏳ Waiting for device response...")
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 15) { [weak self] in
-            
+        DispatchQueue.main.asyncAfter(deadline: .now() + 40) { [weak self] in
+
             guard let self = self else { return }
 
-            // If already received → do nothing
             if self.addedDeviceId != nil {
-                print("✅ Device already handled")
+
+                print("✅ Device already added")
                 return
             }
 
-            print("⚠️ Delegate not called, retrying pairing...")
+            print("❌ Pairing timeout")
 
-             
-            self.retryAPConfig()
-            self.startFallbackCheck()
+            // IMPORTANT
+            // STOP AP CONFIG
+            self.ezActivator.stopConfigWiFi()
+
+            DispatchQueue.main.async {
+
+                guard self.presentedViewController == nil else {
+                    return
+                }
+
+                let alert = UIAlertController(
+                    title: "Failed",
+                    message: "Device not responding. Please retry.",
+                    preferredStyle: .alert
+                )
+
+                alert.addAction(
+                    UIAlertAction(
+                        title: "Retry",
+                        style: .default,
+                        handler: { _ in
+
+                            self.hasStartedPairing = false
+                            self.startAPModePairing()
+                        }
+                    )
+                )
+
+                alert.addAction(
+                    UIAlertAction(
+                        title: "Cancel",
+                        style: .cancel
+                    )
+                )
+
+                self.present(alert, animated: true)
+            }
         }
     }
   

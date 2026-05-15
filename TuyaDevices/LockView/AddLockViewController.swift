@@ -48,6 +48,17 @@ class AddLockViewController: UIViewController {
             target: self,
             action: #selector(dismissKeyboard)
         )
+        
+        
+        let backgroundImage = UIImageView(image: UIImage(named: "Screen Background"))
+               backgroundImage.contentMode = .scaleAspectFill
+                view.insertSubview(backgroundImage, at: 0)
+               backgroundImage.translatesAutoresizingMaskIntoConstraints = false
+               backgroundImage.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+               backgroundImage.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+               backgroundImage.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+               backgroundImage.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+    
 
         view.addGestureRecognizer(tap)
     }

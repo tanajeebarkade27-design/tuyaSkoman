@@ -2088,10 +2088,21 @@
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1540;
 				LastUpgradeCheck = 1540;
-				TargetAttributes = {
-					8488AC282D3B68B7003BAC30 = {
-						CreatedOnToolsVersion = 15.4;
+			TargetAttributes = {
+				8488AC282D3B68B7003BAC30 = {
+					CreatedOnToolsVersion = 15.4;
+					SystemCapabilities = {
+						com.apple.AccessWiFi = {
+							enabled = 1;
+						};
+						com.apple.Multicast = {
+							enabled = 1;
+						};
+						com.apple.Push = {
+							enabled = 1;
+						};
 					};
+				};
 					8488AC3E2D3B68B8003BAC30 = {
 						CreatedOnToolsVersion = 15.4;
 						TestTargetID = 8488AC282D3B68B7003BAC30;

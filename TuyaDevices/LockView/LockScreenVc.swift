@@ -24,7 +24,10 @@ class LockScreenVc: UIViewController {
     @IBOutlet weak var lockAlertView: UIView!
     
     @IBOutlet weak var offlinePassword: UIView!
-
+    
+    
+    @IBOutlet weak var Bellpress: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -50,6 +53,10 @@ class LockScreenVc: UIViewController {
            }
         printAllDPSchema()
        
+        Bellpress.backgroundColor = UIColor.white.withAlphaComponent(0.10)
+        Bellpress.layer.cornerRadius = 60
+        Bellpress.clipsToBounds = true
+        
         let backgroundImage = UIImageView(image: UIImage(named: "Screen Background"))
                backgroundImage.contentMode = .scaleAspectFill
                 view.insertSubview(backgroundImage, at: 0)
@@ -68,6 +75,7 @@ class LockScreenVc: UIViewController {
         tempPasswordView.layer.cornerRadius = 12
         tempPasswordView.clipsToBounds = true
         tempPasswordView.backgroundColor = UIColor.white.withAlphaComponent(0.10)
+        
         lockAlertView.backgroundColor = UIColor.white.withAlphaComponent(0.10)
         lockAlertView.layer.cornerRadius = 12
         lockAlertView.clipsToBounds = true
