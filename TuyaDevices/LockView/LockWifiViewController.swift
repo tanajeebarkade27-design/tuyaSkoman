@@ -17,6 +17,7 @@ class LockWifiViewController: UIViewController {
     @IBOutlet weak var conformImage: UIButton!
     
     
+    @IBOutlet weak var backbtn: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
 print ("ssid\(ssid) password\(password) tuyaHomeId\(tuyaHomeId) tuyaRoomId\(tuyaRoomId) " )
@@ -29,6 +30,15 @@ print ("ssid\(ssid) password\(password) tuyaHomeId\(tuyaHomeId) tuyaRoomId\(tuya
                backgroundImage.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
                backgroundImage.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
     }
+    
+    
+    
+    
+    @IBAction func backbtn(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+        
+    }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -101,6 +111,14 @@ print ("ssid\(ssid) password\(password) tuyaHomeId\(tuyaHomeId) tuyaRoomId\(tuya
                 vc.tuyaRoomId = roomId
 
                 self.navigationController?.pushViewController(vc, animated: true)
+
+            } else if mode == "BLE" {
+                self.navigateToBLEMethod(
+                    ssid: ssid,
+                    password: password,
+                    homeId: homeId,
+                    roomId: roomId
+                )
             }
         }
 
@@ -121,8 +139,12 @@ print ("ssid\(ssid) password\(password) tuyaHomeId\(tuyaHomeId) tuyaRoomId\(tuya
             print("❌ Missing data")
             return
         }
-        
-        let vc = self.storyboard?.instantiateViewController(
+
+        navigateToBLEMethod(ssid: ssid, password: password, homeId: homeId, roomId: roomId)
+    }
+
+    private func navigateToBLEMethod(ssid: String, password: String, homeId: Int64, roomId: Int64) {
+        let vc = storyboard?.instantiateViewController(
             identifier: "BLEmethodViewController"
         ) as! BLEmethodViewController
 
@@ -132,9 +154,7 @@ print ("ssid\(ssid) password\(password) tuyaHomeId\(tuyaHomeId) tuyaRoomId\(tuya
         vc.tuyaRoomId = roomId
         print("passing parameter \(ssid) password \(password) homeId:\(homeId) roomId:\(roomId)")
 
-        self.navigationController?.pushViewController(vc, animated: true)
-
-        
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     
@@ -148,4 +168,5 @@ print ("ssid\(ssid) password\(password) tuyaHomeId\(tuyaHomeId) tuyaRoomId\(tuya
 enum LockMode {
     case ez
     case ap
+    case ble
 }

@@ -15,8 +15,10 @@ class ModeSelectionPopup: UIView {
     private let container = UIView()
     private let ezButton = UIButton(type: .system)
     private let apButton = UIButton(type: .system)
+    private let bleButton = UIButton(type: .system)
     private let ezBulbImageView = UIImageView()
     private let apBulbImageView = UIImageView()
+    private let bleBulbImageView = UIImageView()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -76,12 +78,21 @@ class ModeSelectionPopup: UIView {
             background: UIColor.systemBlue.withAlphaComponent(0.22)
         )
         apButton.addTarget(self, action: #selector(apTapped), for: .touchUpInside)
-        
-        let buttonsRow = UIStackView(arrangedSubviews: [ezButton, apButton])
+
+        configureModeButton(
+            button: bleButton,
+            bulbImageView: bleBulbImageView,
+            title: "BLE",
+            background: UIColor.systemOrange.withAlphaComponent(0.22),
+            iconName: "antenna.radiowaves.left.and.right"
+        )
+        bleButton.addTarget(self, action: #selector(bleTapped), for: .touchUpInside)
+
+        let buttonsRow = UIStackView(arrangedSubviews: [ezButton, apButton, bleButton])
         buttonsRow.axis = .horizontal
         buttonsRow.alignment = .center
-        buttonsRow.distribution = .equalSpacing
-        buttonsRow.spacing = 18
+        buttonsRow.distribution = .fillEqually
+        buttonsRow.spacing = 12
         buttonsRow.translatesAutoresizingMaskIntoConstraints = false
         
         let stack = UIStackView(arrangedSubviews: [title, subtitle, buttonsRow])
@@ -96,10 +107,9 @@ class ModeSelectionPopup: UIView {
             stack.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -16),
             stack.bottomAnchor.constraint(equalTo: container.bottomAnchor, constant: -16),
             
-            ezButton.widthAnchor.constraint(equalToConstant: 70),
             ezButton.heightAnchor.constraint(equalToConstant: 90),
-            apButton.widthAnchor.constraint(equalToConstant: 70),
             apButton.heightAnchor.constraint(equalToConstant: 90),
+            bleButton.heightAnchor.constraint(equalToConstant: 90),
         ])
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(handleDismiss))
@@ -110,6 +120,7 @@ class ModeSelectionPopup: UIView {
         // Start subtle blinking on both bulbs (fast for EZ, slow for AP)
         startBlinking(imageView: ezBulbImageView, speed: 0.2)
         startBlinking(imageView: apBulbImageView, speed: 0.8)
+        startBlinking(imageView: bleBulbImageView, speed: 0.5)
     }
 
     @objc private func handleDismiss() {
@@ -123,6 +134,10 @@ class ModeSelectionPopup: UIView {
 
     @objc private func apTapped() {
         onModeSelected?("AP")
+    }
+
+    @objc private func bleTapped() {
+        onModeSelected?("BLE")
     }
 
     // MARK: - Animation
@@ -144,6 +159,7 @@ class ModeSelectionPopup: UIView {
     func dismiss() {
         ezBulbImageView.layer.removeAllAnimations()
         apBulbImageView.layer.removeAllAnimations()
+        bleBulbImageView.layer.removeAllAnimations()
         self.removeFromSuperview()
     }
     
@@ -151,7 +167,8 @@ class ModeSelectionPopup: UIView {
         button: UIButton,
         bulbImageView: UIImageView,
         title: String,
-        background: UIColor
+        background: UIColor,
+        iconName: String = "lightbulb.fill"
     ) {
         button.backgroundColor = background
         button.layer.cornerRadius = 12
@@ -161,8 +178,8 @@ class ModeSelectionPopup: UIView {
         button.setTitle("", for: .normal)
         button.tintColor = .white
         
-        bulbImageView.image = UIImage(systemName: "lightbulb.fill")
-        bulbImageView.tintColor = .systemYellow
+        bulbImageView.image = UIImage(systemName: iconName)
+        bulbImageView.tintColor = iconName == "lightbulb.fill" ? .systemYellow : .white
         bulbImageView.contentMode = .scaleAspectFit
         bulbImageView.translatesAutoresizingMaskIntoConstraints = false
         button.addSubview(bulbImageView)

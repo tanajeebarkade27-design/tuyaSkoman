@@ -6,7 +6,6 @@
 //
 
 import UIKit
- 
 import ThingSmartHomeKit
 import ThingSmartActivatorKit
 import ThingSmartLockKit
@@ -24,9 +23,13 @@ class LockScreenVc: UIViewController {
     @IBOutlet weak var lockAlertView: UIView!
     
     @IBOutlet weak var offlinePassword: UIView!
-    
-    
+    @IBOutlet weak var offlinePasswordTitleLabel: UILabel!
+    @IBOutlet weak var offlinePasswordSubtitleLabel: UILabel!
+
     @IBOutlet weak var Bellpress: UIView!
+
+    private var bellpressHoldLabel: UILabel?
+    private var isVideoLockUnlocking = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,10 +55,8 @@ class LockScreenVc: UIViewController {
                self.updateBattery(from: dps)
            }
         printAllDPSchema()
-       
-        Bellpress.backgroundColor = UIColor.white.withAlphaComponent(0.10)
-        Bellpress.layer.cornerRadius = 60
-        Bellpress.clipsToBounds = true
+
+        configureBellpressForLockType()
         
         let backgroundImage = UIImageView(image: UIImage(named: "Screen Background"))
                backgroundImage.contentMode = .scaleAspectFill
@@ -89,11 +90,13 @@ class LockScreenVc: UIViewController {
         offlinePassword.backgroundColor = UIColor.white.withAlphaComponent(0.10)
         offlinePassword.layer.cornerRadius = 12
         offlinePassword.clipsToBounds = true
-        
-        let unlockTap = UITapGestureRecognizer(target: self, action: #selector(unlockTapped))
-        unlockBtn.isUserInteractionEnabled = true
-        unlockBtn.addGestureRecognizer(unlockTap)
-        
+        configureOfflinePasswordRow()
+    }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        guard isVideoLockCategory() else { return }
+        Bellpress.layer.cornerRadius = Bellpress.bounds.width / 2
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -147,14 +150,72 @@ class LockScreenVc: UIViewController {
         self.present(alert, animated: true)
     }
     func openEditDevice() {
-        print("✏️ Edit Device tapped")
-        
-          
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        if let vc = storyboard.instantiateViewController(withIdentifier: "EditLockNameVC") as? EditLockNameVC {
-            vc.deviceId = selectedLock?.deviceId
-            self.navigationController?.pushViewController(vc, animated: true)
+        guard let lock = selectedLock else { return }
+
+        let popup = EditDeviceNamePopup(currentName: lock.deviceName)
+        popup.onSubmit = { [weak self] newName in
+            self?.submitDeviceNameChange(newName, popup: popup)
         }
+        popup.present(on: view)
+    }
+
+    private func submitDeviceNameChange(_ newName: String, popup: EditDeviceNamePopup) {
+        guard let lock = selectedLock else { return }
+        guard let device = ThingSmartDevice(deviceId: lock.deviceId) else {
+            presentNameAlert(title: "Edit Device", message: "Device not available.")
+            return
+        }
+
+        popup.setSubmitting(true)
+
+        device.updateName(newName, success: { [weak self] in
+            DispatchQueue.main.async {
+                guard let self = self else { return }
+                self.applyLocalDeviceNameUpdate(newName, for: lock)
+                popup.dismiss()
+            }
+        }, failure: { [weak self] error in
+            DispatchQueue.main.async {
+                popup.setSubmitting(false)
+                self?.presentNameAlert(
+                    title: "Edit Device",
+                    message: error?.localizedDescription ?? "Could not update name."
+                )
+            }
+        })
+    }
+
+    private func applyLocalDeviceNameUpdate(_ newName: String, for lock: TuyaDeviceModel) {
+        let updated = TuyaDeviceModel(
+            tuyaHomeId: lock.tuyaHomeId,
+            tuyaRoomId: lock.tuyaRoomId,
+            deviceId: lock.deviceId,
+            deviceName: newName,
+            deviceCategory: lock.deviceCategory
+        )
+        selectedLock = updated
+        navigationItem.title = newName
+
+        SkromanIsraDatabaseHelper.shared.insertTuyaDevice(
+            tuyaHomeId: lock.tuyaHomeId,
+            tuyaRoomId: lock.tuyaRoomId,
+            deviceId: lock.deviceId,
+            deviceName: newName,
+            deviceCategory: lock.deviceCategory
+        )
+
+        let managerDevices = TuyaDeviceManager.shared.devices
+        if let index = managerDevices.firstIndex(where: { $0.deviceId == lock.deviceId }) {
+            var devices = managerDevices
+            devices[index] = updated
+            TuyaDeviceManager.shared.setDevices(devices)
+        }
+    }
+
+    private func presentNameAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        present(alert, animated: true)
     }
     
     
@@ -169,37 +230,195 @@ class LockScreenVc: UIViewController {
         
         confirm.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         
-//        confirm.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { _ in
-//            
-//            ThingSmartHomeManager().removeDevice(withDeviceId: deviceId, success: {
-//                print("✅ Device deleted")
-//                self.navigationController?.popViewController(animated: true)
-//            }) { error in
-//                print("❌ Delete failed:", error?.localizedDescription ?? "")
-//            }
-//        }))
+        confirm.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { [weak self] _ in
+            self?.performDeviceRemoval(deviceId: deviceId)
+        }))
         
         self.present(confirm, animated: true)
     }
+
+    private func performDeviceRemoval(deviceId: String) {
+        guard let device = ThingSmartDevice(deviceId: deviceId) else {
+            presentNameAlert(title: "Delete Device", message: "Device not available.")
+            return
+        }
+
+        device.remove({
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
+                print("✅ Device deleted")
+                self.handleDeviceDeleted(deviceId: deviceId)
+                self.navigationController?.popViewController(animated: true)
+            }
+        }, failure: { [weak self] error in
+            DispatchQueue.main.async {
+                print("❌ Delete failed:", error?.localizedDescription ?? "")
+                self?.presentNameAlert(
+                    title: "Delete Device",
+                    message: error?.localizedDescription ?? "Could not delete device."
+                )
+            }
+        })
+    }
+
+    private func handleDeviceDeleted(deviceId: String) {
+        SkromanIsraDatabaseHelper.shared.deleteTuyaDevice(deviceId: deviceId)
+
+        let remaining = TuyaDeviceManager.shared.devices.filter { $0.deviceId != deviceId }
+        TuyaDeviceManager.shared.setDevices(remaining)
+    }
     
     @objc func unlockTapped() {
+        guard !isVideoLockCategory() else { return }
+        performStandardLockUnlock()
+    }
+
+    @objc private func bellpressLongPressed(_ gesture: UILongPressGestureRecognizer) {
+        guard isVideoLockCategory() else { return }
+
+        switch gesture.state {
+        case .began:
+            UIImpactFeedbackGenerator(style: .medium).impactOccurred()
+            UIView.animate(withDuration: 0.15) {
+                self.Bellpress.transform = CGAffineTransform(scaleX: 0.94, y: 0.94)
+                self.Bellpress.layer.borderColor = UIColor.systemGreen.cgColor
+            }
+        case .ended:
+            UIView.animate(withDuration: 0.15) {
+                self.Bellpress.transform = .identity
+            }
+            performVideoLockUnlock()
+        case .cancelled, .failed:
+            UIView.animate(withDuration: 0.15) {
+                self.Bellpress.transform = .identity
+            }
+        default:
+            break
+        }
+    }
+
+    private func configureBellpressForLockType() {
+        Bellpress.backgroundColor = UIColor.white.withAlphaComponent(0.10)
+        Bellpress.clipsToBounds = true
+        Bellpress.isUserInteractionEnabled = true
+
+        if isVideoLockCategory() {
+            configureVideoLockBellpress()
+        } else {
+            configureStandardLockBellpress()
+        }
+    }
+
+    private func configureStandardLockBellpress() {
+        Bellpress.layer.borderWidth = 0
+        Bellpress.layer.cornerRadius = 60
+        unlockBtn.transform = .identity
+        bellpressHoldLabel?.removeFromSuperview()
+        bellpressHoldLabel = nil
+
+        Bellpress.gestureRecognizers?
+            .filter { $0 is UILongPressGestureRecognizer }
+            .forEach { Bellpress.removeGestureRecognizer($0) }
+
+        unlockBtn.isUserInteractionEnabled = true
+        unlockBtn.gestureRecognizers?.forEach { unlockBtn.removeGestureRecognizer($0) }
+        let unlockTap = UITapGestureRecognizer(target: self, action: #selector(unlockTapped))
+        unlockBtn.addGestureRecognizer(unlockTap)
+    }
+
+    private func configureVideoLockBellpress() {
+        Bellpress.layer.borderWidth = 2.5
+        Bellpress.layer.borderColor = UIColor.systemGreen.cgColor
+        Bellpress.layer.cornerRadius = 60
+
+        unlockBtn.isUserInteractionEnabled = false
+        unlockBtn.gestureRecognizers?.forEach { unlockBtn.removeGestureRecognizer($0) }
+        unlockBtn.transform = CGAffineTransform(translationX: 0, y: -10)
+
+        bellpressHoldLabel?.removeFromSuperview()
+        let label = UILabel()
+        label.text = "Hold to unlock"
+        label.textColor = .white
+        label.font = .systemFont(ofSize: 11, weight: .semibold)
+        label.textAlignment = .center
+        label.numberOfLines = 2
+        label.translatesAutoresizingMaskIntoConstraints = false
+        Bellpress.addSubview(label)
+        bellpressHoldLabel = label
+
+        NSLayoutConstraint.activate([
+            label.leadingAnchor.constraint(equalTo: Bellpress.leadingAnchor, constant: 10),
+            label.trailingAnchor.constraint(equalTo: Bellpress.trailingAnchor, constant: -10),
+            label.bottomAnchor.constraint(equalTo: Bellpress.bottomAnchor, constant: -12)
+        ])
+
+        Bellpress.gestureRecognizers?
+            .filter { $0 is UILongPressGestureRecognizer }
+            .forEach { Bellpress.removeGestureRecognizer($0) }
+
+        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(bellpressLongPressed(_:)))
+        longPress.minimumPressDuration = 0.55
+        Bellpress.addGestureRecognizer(longPress)
+    }
+
+    private func performStandardLockUnlock() {
         guard let devId = selectedLock?.deviceId else { return }
 
         print("🔓 Sending unlock request...")
-
         lockDevice?.setRemoteVoiceUnlockWithDevId(
             devId,
             open: true,
             pwd: "",
-            success: {_ in 
+            success: { _ in
                 print("📡 Request sent")
             },
             failure: { error in
-                print("❌ Request failed: \(error?.localizedDescription)")
+                print("❌ Request failed: \(error?.localizedDescription ?? "")")
             }
         )
     }
-    
+
+    private func performVideoLockUnlock() {
+        guard !isVideoLockUnlocking else { return }
+        guard let devId = selectedLock?.deviceId else { return }
+
+        isVideoLockUnlocking = true
+        print("🔓 Video lock hold-to-unlock for \(devId)")
+
+        let lock = ThingSmartWiFiLockDevice(deviceId: devId)
+        lock.remoteLock(
+            withDevId: devId,
+            open: true,
+            confirm: true,
+            success: { [weak self] isSuccess in
+                DispatchQueue.main.async {
+                    guard let self else { return }
+                    self.isVideoLockUnlocking = false
+                    UINotificationFeedbackGenerator().notificationOccurred(isSuccess ? .success : .warning)
+                    self.showUnlockResultPopup(success: isSuccess)
+                }
+            },
+            failure: { [weak self] error in
+                DispatchQueue.main.async {
+                    guard let self else { return }
+                    self.isVideoLockUnlocking = false
+                    UINotificationFeedbackGenerator().notificationOccurred(.error)
+                    self.presentNameAlert(
+                        title: "Unlock Failed",
+                        message: error?.localizedDescription ?? "Could not unlock the door."
+                    )
+                }
+            }
+        )
+    }
+
+    private func showUnlockResultPopup(success: Bool) {
+        let title = success ? "Unlocked" : "Unlock"
+        let message = success
+            ? "The door has been unlocked successfully."
+            : "Unlock was not confirmed. Please try again."
+        presentNameAlert(title: title, message: message)
+    }
 
     private func printAllDPSchema() {
         for schema in deviceModel?.schemaArray ?? [] {
@@ -231,24 +450,44 @@ class LockScreenVc: UIViewController {
     }
     
     
-    @objc func offlinePasswordTapped() {
-        print("🔑 Temp Password View Tapped")
+    private func isVideoLockCategory() -> Bool {
+        selectedLock?.deviceCategory.lowercased() == "videolock"
+    }
 
+    private func configureOfflinePasswordRow() {
+        guard isVideoLockCategory() else { return }
+
+        offlinePasswordTitleLabel?.text = "Video Surveillance"
+        offlinePasswordSubtitleLabel?.text = "Live camera"
+    }
+
+    @objc func offlinePasswordTapped() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
+
+        if isVideoLockCategory() {
+            guard let vc = storyboard.instantiateViewController(
+                withIdentifier: "VideoSurveillanceVc"
+            ) as? VideoSurveillanceVc else {
+                print("❌ VideoSurveillanceVc not found")
+                return
+            }
+
+            vc.deviceId = selectedLock?.deviceId
+            vc.deviceName = selectedLock?.deviceName
+            navigationController?.pushViewController(vc, animated: true)
+            return
+        }
 
         guard let vc = storyboard.instantiateViewController(
             withIdentifier: "OfflinePassListVC"
         ) as? OfflinePassListVC else {
-            print("❌ TempPassVC not found")
+            print("❌ OfflinePassListVC not found")
             return
         }
 
-        
-        
-        vc.deviceCatgory =  selectedLock?.deviceCategory
+        vc.deviceCatgory = selectedLock?.deviceCategory
         vc.deviceId = selectedLock?.deviceId
-
-        self.navigationController?.pushViewController(vc, animated: true)
+        navigationController?.pushViewController(vc, animated: true)
     }
    
     

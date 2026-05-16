@@ -166,6 +166,22 @@ class MasterButtonSliderView: UIView {
         }
     }
 
+    /// Side labels shown beside the swipe arrows (e.g. doorbell Answer / Deny on `LockOpenVC`).
+    func configureSideLabels(
+        leftText: String,
+        leftColor: UIColor,
+        rightText: String,
+        rightColor: UIColor,
+        font: UIFont = .systemFont(ofSize: 14, weight: .semibold)
+    ) {
+        leftLabel.text = leftText
+        leftLabel.textColor = leftColor
+        leftLabel.font = font
+        rightLabel.text = rightText
+        rightLabel.textColor = rightColor
+        rightLabel.font = font
+    }
+
     
     @objc private func handlePan(_ gesture: UIPanGestureRecognizer) {
         let translation = gesture.translation(in: sliderButton)

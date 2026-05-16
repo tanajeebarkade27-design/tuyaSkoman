@@ -420,6 +420,34 @@ class SkromanIsraDatabaseHelper {
             }
         }
     }
+
+    func deleteTuyaDevice(deviceId: String, completion: (() -> Void)? = nil) {
+        databaseQueue.async { [weak self] in
+            guard let self = self, let db = self.db else { return }
+
+            let query = "DELETE FROM \(self.tuyaDeviceTable) WHERE deviceId = ?;"
+            var stmt: OpaquePointer?
+
+            guard sqlite3_prepare_v2(db, query, -1, &stmt, nil) == SQLITE_OK else {
+                print("❌ Delete Tuya device prepare failed:", String(cString: sqlite3_errmsg(db)))
+                return
+            }
+
+            defer { sqlite3_finalize(stmt) }
+
+            sqlite3_bind_text(stmt, 1, (deviceId as NSString).utf8String, -1, nil)
+
+            if sqlite3_step(stmt) == SQLITE_DONE {
+                print("✅ Tuya device deleted from DB:", deviceId)
+            } else {
+                print("❌ Delete Tuya device failed:", String(cString: sqlite3_errmsg(db)))
+            }
+
+            DispatchQueue.main.async {
+                completion?()
+            }
+        }
+    }
     
     func fetchTuyaDevices(
         tuyaHomeId: Int64,

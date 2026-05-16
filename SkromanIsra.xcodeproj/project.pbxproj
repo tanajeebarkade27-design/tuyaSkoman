@@ -221,6 +221,7 @@
 		8481E86F2FAC4EAE00378F5C /* OfflinePwdCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8481E8562FAC4EAE00378F5C /* OfflinePwdCell.swift */; };
 		8481E8702FAC4EAE00378F5C /* EditLockNameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8481E8582FAC4EAE00378F5C /* EditLockNameVC.swift */; };
 		8481E8712FAC4EAE00378F5C /* ModeSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8481E8592FAC4EAE00378F5C /* ModeSelection.swift */; };
+		84E1A0022FAC4EAE00378F5C /* EditDeviceNamePopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E1A0012FAC4EAE00378F5C /* EditDeviceNamePopup.swift */; };
 		8481E8722FAC4EAE00378F5C /* AddCameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8481E85B2FAC4EAE00378F5C /* AddCameraViewController.swift */; };
 		8481E8732FAC4EAE00378F5C /* AddOfflinePassListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8481E8552FAC4EAE00378F5C /* AddOfflinePassListVC.swift */; };
 		8481E8762FAC4EC600378F5C /* DeviceSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8481E8742FAC4EC600378F5C /* DeviceSelectViewController.swift */; };
@@ -289,8 +290,8 @@
 		849F6B1C2FA1FC6000BBAB31 /* RateUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849F6B1B2FA1FC6000BBAB31 /* RateUsViewController.swift */; };
 		849F6B1E2FA1FC9900BBAB31 /* PaymentComplaintVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849F6B1D2FA1FC9900BBAB31 /* PaymentComplaintVc.swift */; };
 		849F6B202FA1FD7D00BBAB31 /* PaymentSuccessPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849F6B1F2FA1FD7D00BBAB31 /* PaymentSuccessPopup.swift */; };
-		84A1B2C3D4E5F60718293A4C /* MQTTSubscriptionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A1B2C3D4E5F60718293A4B /* MQTTSubscriptionManager.swift */; };
-		84A1B2C3D4E5F60718293A4E /* IoTConnectionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A1B2C3D4E5F60718293A4D /* IoTConnectionState.swift */; };
+		84A1B2C3D4E5F60718293A4C /* MQTT/MQTTSubscriptionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A1B2C3D4E5F60718293A4B /* MQTT/MQTTSubscriptionManager.swift */; };
+		84A1B2C3D4E5F60718293A4E /* MQTT/IoTConnectionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A1B2C3D4E5F60718293A4D /* MQTT/IoTConnectionState.swift */; };
 		84ACF52B2D87FB3400E2280D /* EditButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ACF52A2D87FB3400E2280D /* EditButtonViewController.swift */; };
 		84ACF52E2D88319200E2280D /* EditButtonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ACF52C2D88319200E2280D /* EditButtonCollectionViewCell.swift */; };
 		84ACF52F2D88319200E2280D /* EditButtonCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84ACF52D2D88319200E2280D /* EditButtonCollectionViewCell.xib */; };
@@ -313,6 +314,8 @@
 		84B663BD2D7381970074A5D5 /* roomsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84B663BB2D7381970074A5D5 /* roomsCollectionViewCell.xib */; };
 		84B663BF2D757F8E0074A5D5 /* DeviceScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B663BE2D757F8E0074A5D5 /* DeviceScene.swift */; };
 		84B663C32D75C2370074A5D5 /* SceneConfigPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B663C22D75C2370074A5D5 /* SceneConfigPopUp.swift */; };
+		84BCC2232FB72F0000D3A307 /* VideoSurveillanceVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BCC2222FB72F0000D3A307 /* VideoSurveillanceVc.swift */; };
+		84VID0022FB8000000D3A308 /* VideoLockPreviewSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84VID0012FB8000000D3A308 /* VideoLockPreviewSession.swift */; };
 		84BE521F2D916EC1008C4AF5 /* PasswordResetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BE521E2D916EC1008C4AF5 /* PasswordResetViewController.swift */; };
 		84BE52222D93BC11008C4AF5 /* GoogleCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BE52212D93BC11008C4AF5 /* GoogleCheckViewController.swift */; };
 		84BE52252D93C6EA008C4AF5 /* MainShortCutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BE52242D93C6EA008C4AF5 /* MainShortCutViewController.swift */; };
@@ -369,7 +372,6 @@
 		84D080162E251F8F00E235E4 /* addNewRoomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D080132E251F8E00E235E4 /* addNewRoomCollectionViewCell.swift */; };
 		84D18B902F307E10001FC994 /* AddSocietyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D18B8F2F307E0F001FC994 /* AddSocietyViewController.swift */; };
 		84D18B922F30AA1A001FC994 /* SocietyFormVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D18B912F30AA1A001FC994 /* SocietyFormVc.swift */; };
-		84D2A42B2DA15520003AECF0 /* curtain-2.json in Resources */ = {isa = PBXBuildFile; fileRef = 84D2A42A2DA15520003AECF0 /* curtain-2.json */; };
 		84D307582D6304E00090EA6D /* PopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D307572D6304E00090EA6D /* PopUpView.swift */; };
 		84D3075A2D6305760090EA6D /* success.json in Resources */ = {isa = PBXBuildFile; fileRef = 84D307592D6305760090EA6D /* success.json */; };
 		84D471142DEF030C00ED4BB9 /* ShortcutSceneCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84D471132DEF030C00ED4BB9 /* ShortcutSceneCollectionViewCell.xib */; };
@@ -681,6 +683,7 @@
 		8481E8572FAC4EAE00378F5C /* OfflinePwdCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OfflinePwdCell.xib; sourceTree = "<group>"; };
 		8481E8582FAC4EAE00378F5C /* EditLockNameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditLockNameVC.swift; sourceTree = "<group>"; };
 		8481E8592FAC4EAE00378F5C /* ModeSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeSelection.swift; sourceTree = "<group>"; };
+		84E1A0012FAC4EAE00378F5C /* EditDeviceNamePopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDeviceNamePopup.swift; sourceTree = "<group>"; };
 		8481E85B2FAC4EAE00378F5C /* AddCameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCameraViewController.swift; sourceTree = "<group>"; };
 		8481E8742FAC4EC600378F5C /* DeviceSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceSelectViewController.swift; sourceTree = "<group>"; };
 		8481E8772FAC4F6800378F5C /* LockCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -754,8 +757,8 @@
 		849F6B1B2FA1FC6000BBAB31 /* RateUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateUsViewController.swift; sourceTree = "<group>"; };
 		849F6B1D2FA1FC9900BBAB31 /* PaymentComplaintVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentComplaintVc.swift; sourceTree = "<group>"; };
 		849F6B1F2FA1FD7D00BBAB31 /* PaymentSuccessPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentSuccessPopup.swift; sourceTree = "<group>"; };
-		84A1B2C3D4E5F60718293A4B /* MQTTSubscriptionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MQTT/MQTTSubscriptionManager.swift; sourceTree = "<group>"; };
-		84A1B2C3D4E5F60718293A4D /* IoTConnectionState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MQTT/IoTConnectionState.swift; sourceTree = "<group>"; };
+		84A1B2C3D4E5F60718293A4B /* MQTT/MQTTSubscriptionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MQTT/MQTTSubscriptionManager.swift; sourceTree = "<group>"; };
+		84A1B2C3D4E5F60718293A4D /* MQTT/IoTConnectionState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MQTT/IoTConnectionState.swift; sourceTree = "<group>"; };
 		84ACF52A2D87FB3400E2280D /* EditButtonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditButtonViewController.swift; sourceTree = "<group>"; };
 		84ACF52C2D88319200E2280D /* EditButtonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditButtonCollectionViewCell.swift; sourceTree = "<group>"; };
 		84ACF52D2D88319200E2280D /* EditButtonCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditButtonCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -778,6 +781,8 @@
 		84B663BB2D7381970074A5D5 /* roomsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = roomsCollectionViewCell.xib; sourceTree = "<group>"; };
 		84B663BE2D757F8E0074A5D5 /* DeviceScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceScene.swift; sourceTree = "<group>"; };
 		84B663C22D75C2370074A5D5 /* SceneConfigPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneConfigPopUp.swift; sourceTree = "<group>"; };
+		84BCC2222FB72F0000D3A307 /* VideoSurveillanceVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoSurveillanceVc.swift; sourceTree = "<group>"; };
+		84VID0012FB8000000D3A308 /* VideoLockPreviewSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoLockPreviewSession.swift; sourceTree = "<group>"; };
 		84BE521E2D916EC1008C4AF5 /* PasswordResetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordResetViewController.swift; sourceTree = "<group>"; };
 		84BE52212D93BC11008C4AF5 /* GoogleCheckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleCheckViewController.swift; sourceTree = "<group>"; };
 		84BE52242D93C6EA008C4AF5 /* MainShortCutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainShortCutViewController.swift; sourceTree = "<group>"; };
@@ -835,7 +840,6 @@
 		84D080142E251F8E00E235E4 /* addNewRoomCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = addNewRoomCollectionViewCell.xib; sourceTree = "<group>"; };
 		84D18B8F2F307E0F001FC994 /* AddSocietyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSocietyViewController.swift; sourceTree = "<group>"; };
 		84D18B912F30AA1A001FC994 /* SocietyFormVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocietyFormVc.swift; sourceTree = "<group>"; };
-		84D2A42A2DA15520003AECF0 /* curtain-2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "curtain-2.json"; path = "../../../Downloads/curtain-2.json"; sourceTree = "<group>"; };
 		84D307572D6304E00090EA6D /* PopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpView.swift; sourceTree = "<group>"; };
 		84D307592D6305760090EA6D /* success.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = success.json; sourceTree = "<group>"; };
 		84D471122DEF030C00ED4BB9 /* ShortcutSceneCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutSceneCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -1326,7 +1330,10 @@
 				8481E8572FAC4EAE00378F5C /* OfflinePwdCell.xib */,
 				8481E8582FAC4EAE00378F5C /* EditLockNameVC.swift */,
 				8481E8592FAC4EAE00378F5C /* ModeSelection.swift */,
+				84E1A0012FAC4EAE00378F5C /* EditDeviceNamePopup.swift */,
 				849DFC1F2FAF59E600A0D285 /* BLEmethodViewController.swift */,
+				84BCC2222FB72F0000D3A307 /* VideoSurveillanceVc.swift */,
+				84VID0012FB8000000D3A308 /* VideoLockPreviewSession.swift */,
 			);
 			path = LockView;
 			sourceTree = "<group>";
@@ -1450,8 +1457,8 @@
 				8488AC302D3B68B7003BAC30 /* ViewController.swift */,
 				8488AC3A2D3B68B8003BAC30 /* Info.plist */,
 				845AFB2B2D4890BF00A91530 /* MainApi.swift */,
-				84A1B2C3D4E5F60718293A4B /* MQTTSubscriptionManager.swift */,
-				84A1B2C3D4E5F60718293A4D /* IoTConnectionState.swift */,
+				84A1B2C3D4E5F60718293A4B /* MQTT/MQTTSubscriptionManager.swift */,
+				84A1B2C3D4E5F60718293A4D /* MQTT/IoTConnectionState.swift */,
 				8497369C2DAE5C06001B3D9E /* siriIntent.swift */,
 				849736A22DAF72E4001B3D9E /* SkromanShortcuts.swift */,
 				8418EC192DB2596300E6B591 /* newTestIntent.swift */,
@@ -1860,7 +1867,6 @@
 				846245042DFFE3E100A52F9A /* sucess.json */,
 				846245052DFFE3E100A52F9A /* sync.json */,
 				8462451F2DFFE43800A52F9A /* color 2.json */,
-				84D2A42A2DA15520003AECF0 /* curtain-2.json */,
 				846245072DFFE3E100A52F9A /* wifi_progress.json */,
 				8497C2D22D9A73200011CEC0 /* curtain.json */,
 				846244F12DFFE3D700A52F9A /* delete.json */,
@@ -2088,21 +2094,21 @@
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1540;
 				LastUpgradeCheck = 1540;
-			TargetAttributes = {
-				8488AC282D3B68B7003BAC30 = {
-					CreatedOnToolsVersion = 15.4;
-					SystemCapabilities = {
-						com.apple.AccessWiFi = {
-							enabled = 1;
-						};
-						com.apple.Multicast = {
-							enabled = 1;
-						};
-						com.apple.Push = {
-							enabled = 1;
+				TargetAttributes = {
+					8488AC282D3B68B7003BAC30 = {
+						CreatedOnToolsVersion = 15.4;
+						SystemCapabilities = {
+							com.apple.AccessWiFi = {
+								enabled = 1;
+							};
+							com.apple.Multicast = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
 						};
 					};
-				};
 					8488AC3E2D3B68B8003BAC30 = {
 						CreatedOnToolsVersion = 15.4;
 						TestTargetID = 8488AC282D3B68B7003BAC30;
@@ -2200,7 +2206,6 @@
 				842D1DEF2D51EEB30094FAD5 /* RoomTableViewCell.xib in Resources */,
 				84F8BFED2D54B4DF00AAF053 /* SceneCollectionViewCell.xib in Resources */,
 				8488AC362D3B68B8003BAC30 /* Assets.xcassets in Resources */,
-				84D2A42B2DA15520003AECF0 /* curtain-2.json in Resources */,
 				84C214502D855352002777C9 /* ScheduleDeviceCollectionViewCell.xib in Resources */,
 				847516A72F4088D600051B66 /* CompletedViewCell.xib in Resources */,
 				8440F9772F3709480072E8B9 /* AmenityTableViewCell.xib in Resources */,
@@ -2312,9 +2317,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-SkromanIsra/Pods-SkromanIsra-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-SkromanIsra/Pods-SkromanIsra-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -2329,9 +2338,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-SkromanIsra/Pods-SkromanIsra-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-SkromanIsra/Pods-SkromanIsra-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -2467,10 +2480,12 @@
 				8489020D2D3F9FBA00EB4D09 /* LoginViewController.swift in Sources */,
 				845AD4C22D47A326000AC780 /* Esp_ViewController.swift in Sources */,
 				845AFB2C2D4890BF00A91530 /* MainApi.swift in Sources */,
-				84A1B2C3D4E5F60718293A4C /* MQTTSubscriptionManager.swift in Sources */,
-				84A1B2C3D4E5F60718293A4E /* IoTConnectionState.swift in Sources */,
+				84A1B2C3D4E5F60718293A4C /* MQTT/MQTTSubscriptionManager.swift in Sources */,
+				84A1B2C3D4E5F60718293A4E /* MQTT/IoTConnectionState.swift in Sources */,
 				84CDB9202EC84D4F005B2046 /* HomeAccessTableViewCell.swift in Sources */,
 				8471C0AD2EDEF7A8001BDD41 /* PerfferdTimePopup.swift in Sources */,
+				84BCC2232FB72F0000D3A307 /* VideoSurveillanceVc.swift in Sources */,
+				84VID0022FB8000000D3A308 /* VideoLockPreviewSession.swift in Sources */,
 				84D471152DEF030C00ED4BB9 /* ShortcutSceneCollectionViewCell.swift in Sources */,
 				84C2145C2D85A174002777C9 /* SceneScheduleCollectionViewCell.swift in Sources */,
 				844D69FC2E0918B4004E7B0D /* RegisteredRoomViewController.swift in Sources */,
@@ -2517,6 +2532,7 @@
 				8481E86F2FAC4EAE00378F5C /* OfflinePwdCell.swift in Sources */,
 				8481E8702FAC4EAE00378F5C /* EditLockNameVC.swift in Sources */,
 				8481E8712FAC4EAE00378F5C /* ModeSelection.swift in Sources */,
+				84E1A0022FAC4EAE00378F5C /* EditDeviceNamePopup.swift in Sources */,
 				8481E8722FAC4EAE00378F5C /* AddCameraViewController.swift in Sources */,
 				8481E8732FAC4EAE00378F5C /* AddOfflinePassListVC.swift in Sources */,
 				8414AF152DF8106C0067A02D /* AllRoomsCollectionViewCell.swift in Sources */,

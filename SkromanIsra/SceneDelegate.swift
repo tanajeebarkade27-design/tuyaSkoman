@@ -14,15 +14,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene,
                    willConnectTo session: UISceneSession,
                options connectionOptions: UIScene.ConnectionOptions) {
-        // Use storyboard's initial view controller (Navigation Controller)
         guard (scene as? UIWindowScene) != nil else { return }
-        
+
         if #available(iOS 13.0, *) {
-                window?.overrideUserInterfaceStyle = .light
+            window?.overrideUserInterfaceStyle = .light
+        }
+
+        // Cold start from Tuya doorbell / visitor push tap
+        if let response = connectionOptions.notificationResponse {
+            let userInfo = response.notification.request.content.userInfo
+            let title = response.notification.request.content.title
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                (UIApplication.shared.delegate as? AppDelegate)?
+                    .handleLockNotificationTap(userInfo: userInfo, title: title)
             }
-        
-        
-        
+        }
     }
     
 

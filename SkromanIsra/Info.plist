@@ -10,6 +10,8 @@
 	<string>Main</string>
 	<key>NSCameraUsageDescription</key>
 	<string>For using the camera for QR Scan</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Microphone is used to speak through your video lock intercom.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>This app needs location access to get the current Wi-Fi network name.</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
@@ -23,6 +25,8 @@
     </array>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>For profile image select</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Saves video lock screenshots to your photo library.</string>
     <key>NSLocalNetworkUsageDescription</key>
     <string>This app needs local network access to discover devices</string>
 
